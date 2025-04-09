@@ -1,0 +1,54 @@
+/*
+  Modified from Mechabar at https://github.com/Sejjy/MechaBar
+  Sejjy wrote most of this config, I just modified it
+  Enjoy!
+*/
+
+/* 
+  bg - background
+  fg - foreground
+  br - border
+*/
+
+/* Main Colors */
+
+@define-color main-fg         #ff1010;
+@define-color main-bg         #000000;
+@define-color main-br         #ff1010;
+
+@define-color active-bg       #ff1010;
+@define-color active-fg       #000000;
+
+@define-color hover-bg        #421616;
+@define-color hover-fg        rgba(255, 200, 200, 0.75);
+
+@define-color red	      #ff0000;
+@define-color white           #ffffff;
+@define-color black           #000000;
+
+/* Module Colors */
+
+@define-color module-fg       #ffffff;
+@define-color workspaces      #000000;
+
+@define-color cpuinfo         #000000;
+@define-color memory          #000000;
+@define-color cpu             #000000;
+@define-color distro-fg       #000000;
+@define-color distro-bg       #ff0000;
+@define-color time            #000000;
+@define-color date            #000000;
+@define-color tray            #000000;
+
+@define-color pulseaudio      #000000;
+@define-color backlight       #000000;
+@define-color battery         #000000;
+@define-color power           #000000;
+
+/* State Colors */
+
+@define-color good            #ffffff;
+@define-color warning         #ffff00;
+@define-color critical        #ff8000;
+@define-color full            #ffffff;
+@define-color charging        #00ff00;

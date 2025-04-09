@@ -1,0 +1,14 @@
+font=JetBrains Mono
+text-wrong=no
+text-ver=...
+text-clear=←
+text-caps-lock=CAPS!
+
+clock
+datestr=%a %Y-%m-%d 
+
+screenshots
+effect-blur=10x10
+
+indicator
+indicator-radius=256

@@ -1,0 +1,397 @@
+{
+  /*
+    Modified from Mechabar at https://github.com/Sejjy/MechaBar
+    Sejjy wrote most of this config, I just modified it
+    Enjoy!
+  */
+
+  // Optimized for 1920*1080 screens
+
+  "layer": "top",
+  "position": "top",
+  // "height": 24, // uncomment to set fixed height; may break if height > 24
+  "mode": "dock",
+  "reload_style_on_change": true,
+  "gtk-layer-shell": true,
+
+  // === Positions ===
+
+  "modules-left": [
+    "hyprland/workspaces",  // workspaces
+    "custom/right",
+
+    "memory",               // memory
+    "custom/right",
+
+    "custom/cpu",           // cpu
+    "custom/right",
+
+    "battery",              // battery
+    "custom/right",
+
+    "custom/keymap",        // keymap
+
+    "custom/paddw"
+  ],
+
+  "modules-center": [
+    "custom/paddc",
+
+    "hyprland/window",      // window title
+    "custom/left"
+  ],
+
+  "modules-right": [
+    "custom/media",         // media info
+    
+    "custom/wifi",          // wi-fi
+    "bluetooth",            // bluetooth
+    "custom/update",        // update
+
+    //"custom/left",
+    "pulseaudio",           // output device
+
+    "custom/left",
+    "custom/backlight",     // brightness
+
+    "custom/left",
+    "clock#time",           // time
+
+    "custom/left",
+    "clock#date",           // date
+
+    "custom/left",
+    "custom/power"          // power button
+  ],
+
+  // === Modules ===
+
+  "custom/ws": {
+    "format": "  ",
+    "format": "",
+    "tooltip": false,
+    "min-length": 3,
+    "max-length": 3
+  },
+
+  "hyprland/workspaces": {
+    //"on-scroll-up": "hyprctl dispatch workspace -1",
+    //"on-scroll-down": "hyprctl dispatch workspace +1",
+    // a bit touchy with touchpad (pun intended) so keep commented
+    "persistent-workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": [],
+      "6": [],
+      "7": [],
+      "8": [],
+      "9": [],
+      "10": []
+    }
+  },
+
+  "hyprland/window": {
+    "format": "{}",
+    "min-length": 10,
+    "max-length": 140,
+
+    // === Window Titles ===
+
+    "rewrite": {
+      "": "<span foreground='#89b4fa'> </span> Hyprland",
+      "~": "  Terminal",
+      "zsh": "  Terminal",
+      "kitty": "  Terminal",
+      "sgroh@tesseractpitop:(.*)": "  Terminal",
+      "sudo": "  Terminal",
+      "(.*)sgroh@tesseractpitop:~": "  Terminal",
+      "vim": "<span foreground='#009933'> </span> Vim",
+      "sudo vim": "<span foreground='#009933'> </span> Vim",
+      "vim (.*)": "<span foreground='#009933'> </span> $1",
+      "sudo vim (.*)": "<span foreground='#009933'> </span> $1",
+      "calc": "  Calculator",
+      "clac": "  Calculator",
+      "(.*) - PrusaSlicer-2.9.0+UNKNOWN based on Slic3r": " $1",
+      "PrusaSlicer-2.9.0+UNKNOWN based on Slic3r": " PrusaSlicer",
+      "(.*) - Inkscape": "  $1",
+      "FreeCAD 1.0.0": "<span foreground='#cb333b'> </span> FreeCAD",
+      "(.*) - FreeCAD 1.0.0": "<span foreground='#cb333b'> </span> $1",
+      "update": "󰮯  System Update",
+      "udpate": "󰮯  System Update",
+      "updtae": "󰮯  System Update",
+      "updaet": "󰮯  System Update",
+      "(.*) - GNU Emacs at TesseractPiTop": "  $1",
+      "(.*) – Doom Emacs": "  $1",
+      "Signal": "<span foreground='#3b45fd'> </span> Signal",
+      "yay -S (.*)": "󰣇 󱧕  $1",
+      "yay -Ss (.*)": "󰣇   $1",
+      "yay -R (.*)": "󰣇 󱧔  $1",
+      "sudo pacman -S (.*)": "󰮯 󱧕  $1",
+      "sudo pacman -Ss (.*)": "󰮯   $1",
+      "pacman -Ss (.*)": "󰮯   $1",
+      "sudo pacman -R (.*)": "󰮯 󱧔  $1",
+      "flatpak install (.*)": " 󱧕  $1",
+      "flatpak search (.*)": "   $1",
+      "flatpak remove (.*)": " 󱧔  $1",
+      "Mozilla Firefox": "<span foreground='#e66000'>󰈹 </span> Firefox",
+      "(.*)Mozilla Firefox": "<span foreground='#e66000'>󰈹 </span> Firefox",
+      "(.*) — Mozilla Firefox": "<span foreground='#e66000'>󰈹 </span> $1",
+      "(.*) at DuckDuckGo — Mozilla Firefox": "󰇥   $1",
+      "(.*) - Google Search — Mozilla Firefox": "   $1",
+      "(.*) - Search — Mozilla Firefox": "󰂤   $1",
+      "(.*) - Search - Microsoft Bing — Mozilla Firefox": "󰂤   $1",
+      "(.*) - Wikipedia — Mozilla Firefox": "  $1",
+      "My Assigned Assignments — Mozilla Firefox": "󰑴  AP Classroom",
+      "Get the Most Out of AP – AP Students | College Board — Mozilla Firefox": "󰑴  AP Classroom",
+      "(.*) — Bluesky": "<span foreground='#0a7aff'> </span> $1",
+      "Bluesky — Mozilla Firefox": "<span foreground='#0a7aff'> </span> Bluesky",
+      "(.*) — Bluesky — Mozilla Firefox": "<span foreground='#0a7aff'> </span> $1",
+      "(.*) on Bluesky — Mozilla Firefox": "<span foreground='#0a7aff'> </span> $1",
+      "(.*) · GitHub Copilot — Mozilla Firefox": "  $1",
+      "(.*) - Visual Studio Code": "<span foreground='#89b4fa'>󰨞 </span> $1",
+      "(.*)Visual Studio Code": "<span foreground='#89b4fa'>󰨞 </span> $1",
+      "Visual Studio Code": "<span foreground='#89b4fa'>󰨞 </span> VSCode",
+      "(.*) - VSCodium": "<span foreground='#89b4fa'>󰨞 </span> $1",
+      "(.*)VSCodium": "<span foreground='#89b4fa'>󰨞 </span> $1",
+      "VSCodium": "<span foreground='#89b4fa'>󰨞 </span> VSCodium",
+      "(.*) - Code - OSS": "<span foreground='#89b4fa'>󰨞 </span> $1",
+      "OBS(.*)": "  OBS Studio",
+      "VLC media player": "<span foreground='#fab387'>󰕼 </span> VLC Media Player",
+      "(.*) - VLC media player": "<span foreground='#fab387'>󰕼 </span> $1",
+      "GNU Image Manipulation Program": "<span foreground='#a6adc8'> </span> GIMP",
+      "(.*) - GIMP": "<span foreground='#a6adc8'> </span> GIMP",
+      "(.*) — LibreOffice Base": "  $1",
+      "(.*) — LibreOffice Calc": "  $1",
+      "(.*) — LibreOffice Draw": "  $1",
+      "(.*) — LibreOffice Math": "  $1",
+      "(.*) — LibreOffice Impress": "  $1",
+      "(.*) — LibreOffice Writer": "  $1",
+      "(.*) — LibreOffice": "  $1",
+      "LibreOffice": "  LibreOffice",
+      "(.*).jpg": "  $1.jpg",
+      "(.*).png": "  $1.png",
+      "(.*).svg": "  $1.svg",
+      "vesktop": "<span foreground='#7086d4'> </span> Discord",
+      "• Discord(.*)": "Discord$1",
+      "(.*)Discord(.*)": "<span foreground='#7086d4'> </span> $1Discord$2",
+      "(.*).docx": "<span foreground='#89b4fa'> </span> $1.docx",
+      "(.*).xlsx": "<span foreground='#a6e3a1'> </span> $1.xlsx",
+      "(.*).pptx": "<span foreground='#fab387'> </span> $1.pptx",
+      "(.*).pdf":  "<span foreground='#f38ba8'> </span> $1.pdf",
+      "/": "  File Manager",
+      "Timeshift-gtk": "<span foreground='#a6e3a1'> </span> Timeshift",
+      "Authenticate": "  Authenticate"
+    }
+  },
+
+  "memory": {
+    "states": {
+      "warning": 75,
+      "critical": 90
+    },
+
+    "format": "󱦘 {used:0.1f}GB/{percentage}%",
+    "format-critical": "󱦘 {percentage}%",
+    "tooltip": true,
+    "tooltip-format": "Memory Used: {used:0.1f} GB / {total:0.1f} GB",
+    "interval": 5,
+    "min-length": 7,
+    "max-length": 11
+  },
+
+  "custom/cpu": {
+    //"exec": "~/.config/waybar/scripts/cpu-usage.sh",
+    "exec": "~/.config/waybar/scripts/cpu.sh",
+    "return-type": "json",
+    "tooltip": true,
+    "interval": 1
+  },
+
+  "clock#time": {
+    "format": "󱑂 {:%H:%M:%OS}",
+    "tooltip": true,
+    "tooltip-format": "Standard Time: {:%I:%M:%OS %p}",
+    "interval": 1,
+    "min-length": 8,
+    "max-length": 10
+  },
+
+  "clock#date": {
+    "format": "󰨳 {:%y-%m-%d}",
+    "tooltip-format": "<tt>{calendar}</tt>",
+
+    "calendar": {
+      "mode": "month",
+      "mode-mon-col": 6,
+      "on-click-right": "mode",
+
+      "format": {
+        "months": 
+          "<span color='#b4befe'><b>{}</b></span>",
+        "weekdays": 
+          "<span color='#a6adc8' font='7'>{}</span>",
+        "today": 
+          "<span color='#f38ba8'><b>{}</b></span>"
+      }
+    },
+
+    "actions": {
+      "on-click": "mode",
+      "on-click-right": "mode"
+    },
+
+    "min-length": 8,
+    "max-length": 10
+  },
+
+  "custom/wifi": {
+    "exec": "~/.config/waybar/scripts/wifi-status.sh",
+    "return-type": "json",
+    "format": "{}",
+    "tooltip": true,
+    "on-click": "~/.config/waybar/scripts/wifi-menu.sh",
+    "on-click-right": "kitty --title '󰤨  Network Manager TUI' bash -c nmtui",
+    "interval": 1,
+    "min-length": 1,
+    "max-length": 1
+  },
+
+  "bluetooth": { 
+    "format": "󰂰",
+    "format-disabled": "󰂲",
+    "format-connected": "󰂱",
+    "format-connected-battery": "󰂱",
+
+    "tooltip-format": 
+      "{num_connections} connected",
+    "tooltip-format-disabled": 
+      "Bluetooth Disabled",
+    "tooltip-format-connected": 
+      "{num_connections} connected\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": 
+      "{device_alias}",
+    "tooltip-format-enumerate-connected-battery": 
+      "{device_alias}: {device_battery_percentage}%",
+
+    "on-click": "~/.config/waybar/scripts/bluetooth-menu.sh",
+    "on-click-right": "kitty --title '󰂯  Bluetooth TUI' bash -c bluetui",
+    "interval": 1,
+    "min-length": 1,
+    "max-length": 1
+  },
+
+  "custom/update": {
+    "exec": "/home/sgroh/.config/waybar/scripts/system-update.sh",
+    "return-type": "json",
+    "format": "{}",
+    "on-click": "hyprctl dispatch exec '~/.config/waybar/scripts/system-update.sh up'",
+    // floating window, doesn't work
+    //"on-click": "hyprctl dispatch exec '~/.config/waybar/scripts/system-update.sh floating'", 
+    "interval": 60,
+    "tooltip": true,
+    "signal": 20, // what does this do?
+    "min-length": 2,
+    "max-length": 2
+  },
+
+  "custom/media": {
+    "exec": "~/.config/waybar/scripts/media-player.py",
+    "return-type": "json",
+    "format": "{}",
+    "tooltip": "{tooltip}",
+    "on-click": "playerctl play-pause",
+    "min-length": 5,
+    "max-length": 35
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "  {volume}%",
+
+    "format-icons": {
+      "default": [" ", " ", " "],
+      "headphone": " ",
+      "headset": " "
+    },
+
+    "tooltip": true,
+    "tooltip-format": "Device: {desc}",
+    "on-click": "~/.config/waybar/scripts/volume-control.sh -o m",
+    "on-scroll-up": "~/.config/waybar/scripts/volume-control.sh -o i",
+    "on-scroll-down": "~/.config/waybar/scripts/volume-control.sh -o d",
+    "min-length": 6,
+    "max-length": 7
+  },
+
+  "custom/backlight": {
+    "exec": "~/.config/waybar/scripts/brightness-control.sh",
+    "return-type": "json",
+    "format": "{}",
+    "tooltip": true,
+    "on-scroll-up": "~/.config/waybar/scripts/brightness-control.sh -o i",
+    "on-scroll-down": "~/.config/waybar/scripts/brightness-control.sh -o d",
+    "interval": 1,
+    "max-length": 6
+  },
+
+  "battery": {
+    "states": {
+      "full": 100,
+      "good": 95,
+      "warning": 30,
+      "critical": 15
+    },
+
+    "format": "{icon} {capacity}%",
+    "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂"], 
+    "format-full": "󰁹 {capacity}%",
+    "format-warning": "{icon} {capacity}%",
+    "format-critical": "󰂎! {capacity}%",
+    "format-charging": "{icon}󱐋{capacity}%",
+
+    "tooltip-format": " {capacity}%: {time}",
+    "tooltip-format-charging": "󱐋 {capacity}%: {time}",
+    "interval": 1,
+    "max-length": 20
+  },
+
+  "custom/power": {
+    "format": " ",
+    "tooltip": false,
+    "on-click": "~/.config/waybar/scripts/power-menu.sh"
+  },
+
+  "custom/keymap": {
+    "exec": "~/.config/waybar/scripts/keymap.sh",
+    "interval": 1
+  },
+
+
+  // === Padding ===
+
+  "custom/paddw": {
+    "format": " ",
+    "tooltip": false
+  },
+
+  "custom/paddc": {
+    "format": "  ",
+    "tooltip": false
+  },
+
+  // == Left Arrows ==
+
+  "custom/left": {
+    "format": "  ",
+    "tooltip": false
+  },
+
+  // == Right Arrows ==
+
+  "custom/right": {
+    "format": "  ",
+    "tooltip": false
+  }
+}

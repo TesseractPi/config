@@ -1,0 +1,4 @@
+#!/bin/bash
+killall waybar
+sleep 0.1 # give it time
+waybar

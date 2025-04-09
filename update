@@ -1,0 +1,4 @@
+#!/bin/bash
+yay -Syu # also covers pacman
+flatpak update # for flatpak (obviously, who would've guessed
+#sudo pacman -R $(pacman -Qdtq)' # uncomment for autoremove
