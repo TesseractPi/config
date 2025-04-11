@@ -1,4 +1,5 @@
 #!/bin/bash
+# for arch systems, replace with apt pr dnf or whatever if not arch-based
 yay -Syu # also covers pacman
-flatpak update # for flatpak (obviously, who would've guessed
+flatpak update # for flatpak obviously, who would've guessed
 #sudo pacman -R $(pacman -Qdtq)' # uncomment for autoremove
