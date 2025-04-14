@@ -17,28 +17,14 @@
   // === Positions ===
 
   "modules-left": [
-    "hyprland/workspaces",  // workspaces
-    "custom/right",
-
-    "memory",               // memory
-    "custom/right",
-
-    "custom/cpu",           // cpu
-    "custom/right",
-
-    "battery",              // battery
-    "custom/right",
-
-    "custom/keymap",        // keymap
-
+    "hyprland/window",      // window title
     "custom/paddw"
   ],
 
   "modules-center": [
-    "custom/paddc",
+    "custom/paddc"
 
-    "hyprland/window",      // window title
-    "custom/left"
+    //"custom/left"
   ],
 
   "modules-right": [
@@ -48,31 +34,27 @@
     "bluetooth",            // bluetooth
     "custom/update",        // update
 
-    //"custom/left",
+    "custom/keymap",        // keymap
+    "custom/left",
     "pulseaudio",           // output device
-
     "custom/left",
     "custom/backlight",     // brightness
-
+    "custom/left",
+    "custom/cpu",           // cpu
+    "custom/left",
+    "memory",               // memory
+    "custom/left",
+    "battery",              // battery
     "custom/left",
     "clock#time",           // time
-
     "custom/left",
     "clock#date",           // date
-
-    "custom/left",
+    "hyprland/workspaces",  // workspaces
+    //"custom/left",
     "custom/power"          // power button
   ],
 
   // === Modules ===
-
-  "custom/ws": {
-    "format": "  ",
-    "format": "",
-    "tooltip": false,
-    "min-length": 3,
-    "max-length": 3
-  },
 
   "hyprland/workspaces": {
     //"on-scroll-up": "hyprctl dispatch workspace -1",
@@ -81,20 +63,13 @@
     "persistent-workspaces": {
       "1": [],
       "2": [],
-      "3": [],
-      "4": [],
-      "5": [],
-      "6": [],
-      "7": [],
-      "8": [],
-      "9": [],
-      "10": []
+      "3": []
     }
   },
 
   "hyprland/window": {
     "format": "{}",
-    "min-length": 10,
+    "min-length": 1,
     "max-length": 140,
 
     // === Window Titles ===
@@ -161,7 +136,9 @@
       "VLC media player": "<span foreground='#fab387'>󰕼 </span> VLC Media Player",
       "(.*) - VLC media player": "<span foreground='#fab387'>󰕼 </span> $1",
       "GNU Image Manipulation Program": "<span foreground='#a6adc8'> </span> GIMP",
+      "GNU Image Manipulation Program": "<span foreground='#a6adc8'> </span> GIMP",
       "(.*) - GIMP": "<span foreground='#a6adc8'> </span> GIMP",
+      "(.*) – GIMP": "<span foreground='#a6adc8'> </span> $1",
       "(.*) — LibreOffice Base": "  $1",
       "(.*) — LibreOffice Calc": "  $1",
       "(.*) — LibreOffice Draw": "  $1",
@@ -174,8 +151,9 @@
       "(.*).png": "  $1.png",
       "(.*).svg": "  $1.svg",
       "vesktop": "<span foreground='#7086d4'> </span> Discord",
-      "• Discord(.*)": "Discord$1",
-      "(.*)Discord(.*)": "<span foreground='#7086d4'> </span> $1Discord$2",
+      "(.*) - Discord": "<span foreground='#7086d4'> </span> $1",
+      "• Discord(.*)": "<span foreground='#7086d4'> </span> $1",
+      "(.*)Discord(.*)": "<span foreground='#7086d4'> </span> $1 · $2",
       "(.*).docx": "<span foreground='#89b4fa'> </span> $1.docx",
       "(.*).xlsx": "<span foreground='#a6e3a1'> </span> $1.xlsx",
       "(.*).pptx": "<span foreground='#fab387'> </span> $1.pptx",
@@ -197,12 +175,11 @@
     "tooltip": true,
     "tooltip-format": "Memory Used: {used:0.1f} GB / {total:0.1f} GB",
     "interval": 5,
-    "min-length": 7,
+    "min-length": 1,
     "max-length": 11
   },
 
   "custom/cpu": {
-    //"exec": "~/.config/waybar/scripts/cpu-usage.sh",
     "exec": "~/.config/waybar/scripts/cpu.sh",
     "return-type": "json",
     "tooltip": true,
@@ -210,12 +187,12 @@
   },
 
   "clock#time": {
-    "format": "󱑂 {:%H:%M:%OS}",
+    "format": " {:%H:%M:%OS}",
     "tooltip": true,
     "tooltip-format": "Standard Time: {:%I:%M:%OS %p}",
     "interval": 1,
-    "min-length": 8,
-    "max-length": 10
+    "min-length": 1,
+    "max-length": 11
   },
 
   "clock#date": {
@@ -242,7 +219,7 @@
       "on-click-right": "mode"
     },
 
-    "min-length": 8,
+    "min-length": 1,
     "max-length": 10
   },
 
@@ -292,7 +269,7 @@
     "interval": 60,
     "tooltip": true,
     "signal": 20, // what does this do?
-    "min-length": 2,
+    "min-length": 1,
     "max-length": 2
   },
 
@@ -302,13 +279,13 @@
     "format": "{}",
     "tooltip": "{tooltip}",
     "on-click": "playerctl play-pause",
-    "min-length": 5,
+    "min-length": 1,
     "max-length": 35
   },
 
   "pulseaudio": {
     "format": "{icon} {volume}%",
-    "format-muted": "  {volume}%",
+    "format-muted": " {volume}%",
 
     "format-icons": {
       "default": [" ", " ", " "],
@@ -321,7 +298,7 @@
     "on-click": "~/.config/waybar/scripts/volume-control.sh -o m",
     "on-scroll-up": "~/.config/waybar/scripts/volume-control.sh -o i",
     "on-scroll-down": "~/.config/waybar/scripts/volume-control.sh -o d",
-    "min-length": 6,
+    "min-length": 1,
     "max-length": 7
   },
 

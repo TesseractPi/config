@@ -23,8 +23,10 @@ alias l='lsd -A --color=auto'
 alias ls='lsd -A --color=auto'
 alias dir='lsd -A --color=auto'
 
+alias rmr='rm -r' # do not misuse, especially with /
 alias rmrf='rm -rf' # do not misuse, especially with /
 alias cpr='cp -r' 
+alias cprf='cp -rf' 
 alias touchdir='mkdir' # touch, but not with files
 alias md='mkdir' # less chars == better
 

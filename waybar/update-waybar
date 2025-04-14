@@ -1,6 +1,0 @@
-#!/bin/bash
-
-rm -vr /home/sgroh/tesseractpibar/waybar/
-rm -vr /home/sgroh/tesseractpibar/rofi/
-cp -vr /home/sgroh/.config/waybar /home/sgroh/tesseractpibar/
-cp -vr /home/sgroh/.config/rofi /home/sgroh/tesseractpibar/rofi/
