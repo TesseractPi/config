@@ -3,6 +3,15 @@
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
 
+(setq doom-modeline-modal-icon nil)
+
+(setq evil-motion-state-tag "󰫺")
+(setq evil-operator-state-tag "󰫼")
+(setq evil-visual-state-tag "󰬃")
+(setq evil-insert-state-tag "󰫶")
+(setq evil-normal-state-tag "󰫻")
+(setq evil-emacs-state-tag "󰫲")
+(setq evil-replace-state-tag "󰫿")
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
@@ -31,7 +40,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-;;(setq doom-theme 'doom-homage-black)
+;;(setq doom-theme 'doom-one)
 (setq doom-theme 'doom-ir-black)
 (setq fancy-splash-image (concat doom-user-dir "doom-emacs-white.svg"))
 ;; This determines the style of line numbers in effect. If set to `nil', line
@@ -74,6 +83,7 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
 (after! evil
   (evil-ex-define-cmd "X" "x")
   (evil-ex-define-cmd "Q" "q")
