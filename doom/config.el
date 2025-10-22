@@ -5,32 +5,27 @@
 
 (setq doom-modeline-modal-icon nil)
 
-(setq evil-motion-state-tag "󰫺")
-(setq evil-operator-state-tag "󰫼")
-(setq evil-visual-state-tag "󰬃")
-(setq evil-insert-state-tag "󰫶")
+(setq evil-replace-state-tag "")
+;;(setq evil-replace-state-tag "󰫿")
+(setq evil-emacs-state-tag "")
+;;(setq evil-emacs-state-tag "󰫲")
+(setq evil-motion-state-tag "󰆾")
+;;(setq evil-motion-state-tag "󰫺")
+(setq evil-operator-state-tag "")
+;;(setq evil-operator-state-tag "󰫼")
+(setq evil-visual-state-tag "")
+;;(setq evil-visual-state-tag "󰬃")
+(setq evil-insert-state-tag "")
+;;(setq evil-insert-state-tag "󰫶")
 (setq evil-normal-state-tag "󰫻")
-(setq evil-emacs-state-tag "󰫲")
-(setq evil-replace-state-tag "󰫿")
+;;(setq evil-normal-state-tag "󰫻")
+;; removin
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
-;; (setq user-full-name "John Doe"
-;;       user-mail-address "john@doe.com")
+(setq user-full-name "Sam Rohrbach"
+      user-mail-address "sam.g.rohrbach@proton.me")
 
-;; Doom exposes five (optional) variables for controlling fonts in Doom:
-;;
-;; - `doom-font' -- the primary font to use
-;; - `doom-variable-pitch-font' -- a non-monospace font (where applicable)
-;; - `doom-big-font' -- used for `doom-big-font-mode'; use this for
-;;   presentations or streaming.
-;; - `doom-symbol-font' -- for symbols
-;; - `doom-serif-font' -- for the `fixed-pitch-serif' face
-;;
-;; See 'C-h v doom-font' for documentation and more examples of what they
-;; accept. For example:
-;;
-(setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 16 :weight 'semi-light))
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -84,7 +79,38 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+;; aliases for speed
 (after! evil
-  (evil-ex-define-cmd "X" "x")
+  (evil-ex-define-cmd "n" "new")
+  (evil-ex-define-cmd "N" "new")
   (evil-ex-define-cmd "Q" "q")
-  (evil-ex-define-cmd "W" "w"))
+  (evil-ex-define-cmd "W" "w")
+  (evil-ex-define-cmd "E" "e")
+  (evil-ex-define-cmd "X" "x"))
+
+;; Doom exposes five (optional) variables for controlling fonts in Doom:
+;;
+;; - `doom-font' -- the primary font to use
+;; - `doom-variable-pitch-font' -- a non-monospace font (where applicable)
+;; - `doom-big-font' -- used for `doom-big-font-mode'; use this for
+;;   presentations or streaming.
+;; - `doom-symbol-font' -- for symbols
+;; - `doom-serif-font' -- for the `fixed-pitch-serif' face
+;;
+;; See 'C-h v doom-font' for documentation and more examples of what they
+;; accept. For example:
+(setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 16 :weight 'semi-light)
+      doom-serif-font (font-spec :family "JetBrainsMono Nerd Font" :size 16 :weight 'semi-light)
+      doom-variable-pitch-font (font-spec :family "JetBrainsMono Nerd Font" :size 16 :weight 'semi-light))
+
+(defun custom/chfont ()
+        (set-fontset-font "fontset-default" 'cyrillic "JetBrainsMono Nerd Font" nil 'prepend) ;; nil 'prepend means that all other chars are jb mono
+        (set-fontset-font "fontset-default" 'greek "JetBrainsMono Nerd Font" nil 'prepend)
+        (set-fontset-font "fontset-default" 'hangul "JetBrainsMonoHangul")
+        (set-fontset-font "fontset-default" 'kana "Noto Sans CJK SC")
+        (set-fontset-font "fontset-default" 'han "Noto Sans CJK SC")
+        (set-fontset-font "fontset-default" 'bopomofo "Noto Sans CJK SC")
+        (set-fontset-font "fontset-default" 'arabic (font-spec :family "Kawkab Mono" :size 14))
+        (set-fontset-font "fontset-default" 'hebrew "Cousine"))
+
+(add-hook 'after-setting-font-hook #'custom/chfont)

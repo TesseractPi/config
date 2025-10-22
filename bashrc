@@ -15,18 +15,24 @@ PS1='\u@\h \W \$ ' # prompt
 bind -x '"\e[1;3D": "cd $OLDPWD"' # M-left goes back to previous directory
 
 # doom emacs
-export PATH=”$HOME/.config/emacs/bin:$PATH”
+export PATH="$HOME/.config/emacs/bin:$PATH"
 alias doom='~/.config/emacs/bin/doom'
+alias vim='emacsclient' #i believe in emacs superiority
 
 # i <3 nerd fonts :)
 alias l='lsd -A --color=auto'
 alias ls='lsd -A --color=auto'
+alias sl='lsd -A --color=auto'
+alias ssl='lsd -A --color=auto'
+alias sls='lsd -A --color=auto'
 alias dir='lsd -A --color=auto'
 
 alias rmr='rm -r' # do not misuse, especially with /
 alias rmrf='rm -rf' # do not misuse, especially with /
 alias cpr='cp -r' 
-alias cprf='cp -rf' 
+alias cprf='cp -rf'
+alias lns='ln -s'
+alias lnsf='ln -sf'
 alias touchdir='mkdir' # touch, but not with files
 alias md='mkdir' # less chars == better
 
@@ -63,10 +69,14 @@ alias die='shutdown now' # see previous line
 alias rtfm='man' # read it
 
 alias EXIT='exit' # cAPSLOCK MOMENT
-# still bad at typing
 alias exiy='exit'
 alias exir='exit'
 alias exirt='exit'
+alias учше='exit'
+alias εχιτ='exit'
+alias ثءهف='exit'
+alias קסןא='exit'
+alias 󱤉󱥉󱤍󱥬='exit'
 # vim
 alias :q='exit'
 alias :Q='exit'
@@ -105,8 +115,6 @@ alias uwu='clear;uwufetch'
 alias matrix='cmatrix -C red'
 
 alias cat-img='kitty +kitten icat'
-
-alias dei='echo "...is good! Run command \"die\" instead. "' # put elongated muskrat on starship anda activate fts
 
 # other things
 export PATH="$HOME/.rbenv/bin:$PATH"

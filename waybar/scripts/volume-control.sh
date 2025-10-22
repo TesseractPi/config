@@ -18,17 +18,17 @@ EOF
 
 send_notification() {
   vol=$(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}' | sed 's/%//')
-  #notify-send -r 91190 "Volume: ${vol}%"
+  notify-send -r 91190 "Volume: ${vol}%"
 }
 
 notify_mute() {
   mute=$(pactl get-sink-mute @DEFAULT_SINK@ | awk '{print $2}')
   if [ "${mute}" = "yes" ]; then
     whatever="jdkjjjksdf"
-    #notify-send -r 91190 "Muted"
+    notify-send -r 91190 "Muted"
   else
     whatever="dsjihfjdsd"
-    #notify-send -r 91190 "Unmuted"
+    notify-send -r 91190 "Unmuted"
   fi
 }
 

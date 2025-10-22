@@ -75,7 +75,9 @@
     // === Window Titles ===
 
     "rewrite": {
+    // nothing
       "": "<span foreground='#89b4fa'> </span> Hyprland",
+      // terminal
       "~": "  Terminal",
       "zsh": "  Terminal",
       "kitty": "  Terminal",
@@ -93,13 +95,18 @@
       "(.*) - Inkscape": "  $1",
       "FreeCAD 1.0.0": "<span foreground='#cb333b'> </span> FreeCAD",
       "(.*) - FreeCAD 1.0.0": "<span foreground='#cb333b'> </span> $1",
+      "(.*) - GNU Emacs at TesseractPiTop": "  $1",
+      "(.*) – Doom Emacs": "  $1",
+      "Signal": "<span foreground='#3b45fd'> </span> Signal",
+      "No Man's Sky": "<span foreground='#c1272d'>󰣏 </span> NMS",
+      "/": "  File Manager",
+      "Timeshift-gtk": "<span foreground='#a6e3a1'> </span> Timeshift",
+      "Authenticate": "  Authenticate",
+      // package managers
       "update": "󰮯  System Update",
       "udpate": "󰮯  System Update",
       "updtae": "󰮯  System Update",
       "updaet": "󰮯  System Update",
-      "(.*) - GNU Emacs at TesseractPiTop": "  $1",
-      "(.*) – Doom Emacs": "  $1",
-      "Signal": "<span foreground='#3b45fd'> </span> Signal",
       "yay -S (.*)": "󰣇 󱧕  $1",
       "yay -Ss (.*)": "󰣇   $1",
       "yay -R (.*)": "󰣇 󱧔  $1",
@@ -110,21 +117,48 @@
       "flatpak install (.*)": " 󱧕  $1",
       "flatpak search (.*)": "   $1",
       "flatpak remove (.*)": " 󱧔  $1",
+      // tabs in firefox
       "Mozilla Firefox": "<span foreground='#e66000'>󰈹 </span> Firefox",
       "(.*)Mozilla Firefox": "<span foreground='#e66000'>󰈹 </span> Firefox",
       "(.*) — Mozilla Firefox": "<span foreground='#e66000'>󰈹 </span> $1",
-      "(.*) at DuckDuckGo — Mozilla Firefox": "󰇥   $1",
+      // search engines
+      "(.*) at DuckDuckGo — Mozilla Firefox": "<span foreground='#de5833'>󰇥  </span> $1",
       "(.*) - Google Search — Mozilla Firefox": "   $1",
       "(.*) - Search — Mozilla Firefox": "󰂤   $1",
       "(.*) - Search - Microsoft Bing — Mozilla Firefox": "󰂤   $1",
-      "(.*) - Wikipedia — Mozilla Firefox": "  $1",
+      // wikipedia in different languages
+      "(.*) - Wikipedia — Mozilla Firefox": "  $1", // english
+      "(.*) - Wikipǣdia — Mozilla Firefox": "  $1", // old english
+      "(.*) - Wikipǣdia, sēo frēo wīsdōmbōc — Mozilla Firefox": "  $1", // old english
+      "(.*) - Wikipedia, la enciclopedia libre — Mozilla Firefox": "  $1", // spanish
+      "(.*) — Wikipédia — Mozilla Firefox": "  $1", // french
+      "(.*) — Википедия — Mozilla Firefox": "  $1", // russian
+      "(.*) — Вікіпедія — Mozilla Firefox": "  $1", // ukrainian
+      "(.*) - Βικιπαίδεια — Mozilla Firefox": "  $1", // greek
+      "(.*) - 维基百科，自由的百科全书 — Mozilla Firefox": "  $1", // chinese
+      "(.*) - 위키백과, 우리 모두의 백과사전 — Mozilla Firefox": "  $1", // korean
+      "(.*) - Wikiibíídiiya — Mozilla Firefox": "  $1", // navajo
+      "(.*) - sona pona — Mozilla Firefox": "  $1", // toki pona
+      "(.*) - ويكيبيديا — Mozilla Firefox": "  $1", // arabic
+      "(.*) - ویکی‌پدیا، دانشنامهٔ آزاد — Mozilla Firefox": "  $1", // persian
+      "(.*) – ויקיפדיה — Mozilla Firefox": "  $1", // hebrew
+      "(.*) – װיקיפּעדיע — Mozilla Firefox": "  $1", // yiddish
+      "(.*) - Vikipedio — Mozilla Firefox": "  $1", // esperanto
+      "(.*) - विकिपीडिया — Mozilla Firefox": "  $1", // hindi
+      // misc websites
+      "(.*) · GitHub Copilot — Mozilla Firefox": "  $1",
       "My Assigned Assignments — Mozilla Firefox": "󰑴  AP Classroom",
       "Get the Most Out of AP – AP Students | College Board — Mozilla Firefox": "󰑴  AP Classroom",
+      "(.*) | Desmos — Mozilla Firefox": "<span foreground='#50c050'> </span> $1",
+      // "(.*) Desmos | Graphing Calculator — Mozilla Firefox": "<span foreground='#50c050'> </span> $1",
+      "Desmos | Graphing Calculator — Mozilla Firefox": "<span foreground='#50c050'> </span> Desmos",
       "(.*) — Bluesky": "<span foreground='#0a7aff'> </span> $1",
       "Bluesky — Mozilla Firefox": "<span foreground='#0a7aff'> </span> Bluesky",
       "(.*) — Bluesky — Mozilla Firefox": "<span foreground='#0a7aff'> </span> $1",
       "(.*) on Bluesky — Mozilla Firefox": "<span foreground='#0a7aff'> </span> $1",
-      "(.*) · GitHub Copilot — Mozilla Firefox": "  $1",
+      "OpenStreetMap — Mozilla Firefox": "󰦅  OSM",
+      "iD | OpenStreetMap — Mozilla Firefox": "󰦅   Edit OSM",
+      // vscode
       "(.*) - Visual Studio Code": "<span foreground='#89b4fa'>󰨞 </span> $1",
       "(.*)Visual Studio Code": "<span foreground='#89b4fa'>󰨞 </span> $1",
       "Visual Studio Code": "<span foreground='#89b4fa'>󰨞 </span> VSCode",
@@ -132,13 +166,15 @@
       "(.*)VSCodium": "<span foreground='#89b4fa'>󰨞 </span> $1",
       "VSCodium": "<span foreground='#89b4fa'>󰨞 </span> VSCodium",
       "(.*) - Code - OSS": "<span foreground='#89b4fa'>󰨞 </span> $1",
+      // media
       "OBS(.*)": "  OBS Studio",
       "VLC media player": "<span foreground='#fab387'>󰕼 </span> VLC Media Player",
       "(.*) - VLC media player": "<span foreground='#fab387'>󰕼 </span> $1",
       "GNU Image Manipulation Program": "<span foreground='#a6adc8'> </span> GIMP",
       "GNU Image Manipulation Program": "<span foreground='#a6adc8'> </span> GIMP",
-      "(.*) - GIMP": "<span foreground='#a6adc8'> </span> GIMP",
-      "(.*) – GIMP": "<span foreground='#a6adc8'> </span> $1",
+      "(.*) - GIMP": "<span foreground='#8c8073'> </span> GIMP",
+      "(.*) – GIMP": "<span foreground='#8c8073'> </span> $1",
+      // office work
       "(.*) — LibreOffice Base": "  $1",
       "(.*) — LibreOffice Calc": "  $1",
       "(.*) — LibreOffice Draw": "  $1",
@@ -147,20 +183,18 @@
       "(.*) — LibreOffice Writer": "  $1",
       "(.*) — LibreOffice": "  $1",
       "LibreOffice": "  LibreOffice",
-      "(.*).jpg": "  $1.jpg",
-      "(.*).png": "  $1.png",
-      "(.*).svg": "  $1.svg",
-      "vesktop": "<span foreground='#7086d4'> </span> Discord",
-      "(.*) - Discord": "<span foreground='#7086d4'> </span> $1",
-      "• Discord(.*)": "<span foreground='#7086d4'> </span> $1",
-      "(.*)Discord(.*)": "<span foreground='#7086d4'> </span> $1 · $2",
       "(.*).docx": "<span foreground='#89b4fa'> </span> $1.docx",
       "(.*).xlsx": "<span foreground='#a6e3a1'> </span> $1.xlsx",
       "(.*).pptx": "<span foreground='#fab387'> </span> $1.pptx",
       "(.*).pdf":  "<span foreground='#f38ba8'> </span> $1.pdf",
-      "/": "  File Manager",
-      "Timeshift-gtk": "<span foreground='#a6e3a1'> </span> Timeshift",
-      "Authenticate": "  Authenticate"
+      "(.*).jpg": "  $1.jpg",
+      "(.*).png": "  $1.png",
+      "(.*).svg": "  $1.svg",
+      // discord
+      "vesktop": "<span foreground='#7086d4'> </span> Discord",
+      "(.*) - Discord": "<span foreground='#7086d4'> </span> $1",
+      "• Discord(.*)": "<span foreground='#7086d4'> </span> $1",
+      "(.*)Discord(.*)": "<span foreground='#7086d4'> </span> $1 · $2",
     }
   },
 
@@ -285,7 +319,7 @@
 
   "pulseaudio": {
     "format": "{icon} {volume}%",
-    "format-muted": " {volume}%",
+    "format-muted": "  {volume}%",
 
     "format-icons": {
       "default": [" ", " ", " "],

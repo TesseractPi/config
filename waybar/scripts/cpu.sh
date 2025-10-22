@@ -8,7 +8,7 @@ load=$(vmstat 1 2 | tail -1 | awk '{print 100 - $15}')
 
 # Determine CPU state based on usage
 if [ "$load" -ge 80 ]; then
-  state="Critical"
+  state="AAAAAAAAAA"
 elif [ "$load" -ge 60 ]; then
   state="High"
 elif [ "$load" -ge 25 ]; then
