@@ -14,4 +14,4 @@ EOF
 keymap=$(hyprctl devices -j | jq -r '.keyboards[] | select(.main == true) | .active_keymap')
 
 #echo "{\"text\": \" ${keymap}\", \"tooltip\": \"Keymap: ${keymap}\"}"
-echo " ${keymap}"
+echo "  ${keymap}"
