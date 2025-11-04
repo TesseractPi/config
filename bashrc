@@ -114,7 +114,7 @@ alias uwu='clear;uwufetch'
 
 alias matrix='cmatrix -C red'
 
-alias cat-img='kitty +kitten icat'
+alias imgcat='kitty +kitten icat'
 
 # other things
 export PATH="$HOME/.rbenv/bin:$PATH"

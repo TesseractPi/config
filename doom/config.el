@@ -5,21 +5,13 @@
 
 (setq doom-modeline-modal-icon nil)
 
-(setq evil-replace-state-tag "")
-;;(setq evil-replace-state-tag "󰫿")
+(setq evil-replace-state-tag "")
 (setq evil-emacs-state-tag "")
-;;(setq evil-emacs-state-tag "󰫲")
 (setq evil-motion-state-tag "󰆾")
-;;(setq evil-motion-state-tag "󰫺")
 (setq evil-operator-state-tag "")
-;;(setq evil-operator-state-tag "󰫼")
 (setq evil-visual-state-tag "")
-;;(setq evil-visual-state-tag "󰬃")
 (setq evil-insert-state-tag "")
-;;(setq evil-insert-state-tag "󰫶")
 (setq evil-normal-state-tag "󰫻")
-;;(setq evil-normal-state-tag "󰫻")
-;; removin
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
@@ -96,21 +88,68 @@
 ;;   presentations or streaming.
 ;; - `doom-symbol-font' -- for symbols
 ;; - `doom-serif-font' -- for the `fixed-pitch-serif' face
-;;
+;
 ;; See 'C-h v doom-font' for documentation and more examples of what they accept.
 
 (setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 16 :weight 'semi-light)
       doom-serif-font (font-spec :family "JetBrainsMono Nerd Font" :size 16 :weight 'semi-light)
       doom-variable-pitch-font (font-spec :family "JetBrainsMono Nerd Font" :size 16 :weight 'semi-light))
 
-(defun custom/chfont ()
+(defun me/chfont ()
         (set-fontset-font "fontset-default" 'cyrillic "JetBrainsMono Nerd Font" nil 'prepend) ;; nil 'prepend means that all other chars are jb mono
         (set-fontset-font "fontset-default" 'greek "JetBrainsMono Nerd Font" nil 'prepend)
-        (set-fontset-font "fontset-default" 'hangul "JetBrainsMonoHangul")
+        ;;(set-fontset-font "fontset-default" 'hangul "JetBrainsMonoHangul")
+        (set-fontset-font "fontset-default" 'hangul "Noto Sans CJK SC")
         (set-fontset-font "fontset-default" 'kana "Noto Sans CJK SC")
         (set-fontset-font "fontset-default" 'han "Noto Sans CJK SC")
         (set-fontset-font "fontset-default" 'bopomofo "Noto Sans CJK SC")
-        (set-fontset-font "fontset-default" 'arabic (font-spec :family "Kawkab Mono" :size 14))
+        ;;(set-fontset-font "fontset-default" 'arabic "Cascadia Code")
+        (set-fontset-font "fontset-default" 'arabic (font-spec :family "Cascadia Code" :size 20 :weight 'light))
         (set-fontset-font "fontset-default" 'hebrew "Cousine"))
 
-(add-hook 'after-setting-font-hook #'custom/chfont)
+(add-hook 'after-setting-font-hook #'me/chfont)
+
+(defun me/display-space-as-icon (orig-fun key-seq &optional prefix)
+  "use cool nerd font ligatures in minibar"
+  (let ((desc (funcall orig-fun key-seq prefix)))
+    (setq desc (replace-regexp-in-string "\\<SPC\\>" "󱁐" desc))
+    (setq desc (replace-regexp-in-string "\\<RET\\>" "󰌑" desc))
+    (setq desc (replace-regexp-in-string "\\<TAB\\>" "󰌒" desc))
+    (setq desc (replace-regexp-in-string "\\<DEL\\>" "󰭜" desc))
+    (setq desc (replace-regexp-in-string "<deletechar>" "󰹿" desc))
+    desc))
+
+(advice-add 'key-description :around #'me/display-space-as-icon)
+
+
+(after! which-key
+  (defun me/which-key--show-keymap-advice (orig-fun &rest args)
+    "use cool nerd font ligatures in which-key."
+    (let ((inhibit-message t))
+      (cl-letf* (((symbol-function 'which-key--format-and-replace)
+                  (lambda (key &rest rest)
+                    (let ((res (apply rest key)))
+                      (setq res (replace-regexp-in-string "\\<SPC\\>" "󱁐" res))
+                      (setq res (replace-regexp-in-string "\\<RET\\>" "󰌑" res))
+                      (setq res (replace-regexp-in-string "\\<TAB\\>" "󰌒" res))
+                      (setq res (replace-regexp-in-string "\\<DEL\\>" "󰭜" res))
+                      (setq res (replace-regexp-in-string "<deletechar>" "󰹿" res))
+                      res)))))
+        (apply orig-fun args))))
+  (advice-add 'which-key--show-keymap :around #'me/which-key--show-keymap-advice)
+
+
+;;QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm
+;;ΕΡΤΥΘΙΟΠΑΣΔΦΓΗΞΚΛΖΧΨΩΒΝΜςερτυθιίϊΐοπασδφγηξκλζχψωβνμ
+;;ЁЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮёйцукенгшщзхъфывапролджэячсмитьбю
+;;ذضصثقفغعهخحجدشسيبلاتنمكطئءؤرلاىةوزظ دجحخهعغفقثصضذطكمنتالبيسشظزوةىلار
+;;קראטוןםפשדגכעיחלךףזסבהנמצתץ
+;;this is a hebrew alignment test
+;;这是中文中六七和ㄅㄆㄇㄈㄪ的例句
+;;this is a chinese alignment test
+;;これはひらがなとカタカナを使った例文です
+;;this is a kana alignment test
+;;헐 이것은 히라가나와 가타카나를 사용한 예문입니다
+;;this is a hangul alignment test
+;;this is a hieroglyphic alignment test
+;;󱁐 󰌍 󰭜 󰹿 󰌎 󰌑 󰌒 󰌥 󰘲 󰘳 󰘴 󰘵 󰘶 ⌥ ⌘ ⎋

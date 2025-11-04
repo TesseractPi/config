@@ -18,7 +18,7 @@ EOF
 
 send_notification() {
   vol=$(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}' | sed 's/%//')
-  notify-send -r 91190 "Volume: ${vol}%"
+  #notify-send -r 91190 "Volume: ${vol}%"
 }
 
 notify_mute() {
@@ -48,7 +48,7 @@ action_volume() {
   d)
     # Decrease volume, ensuring it doesn't drop below 0%
     current_vol=$(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}' | sed 's/%//')
-    new_vol=$((current_vol - 2))
+    new_vol=$((current_vol - 1))
     if [ "$new_vol" -lt 0 ]; then
       new_vol=0
     fi

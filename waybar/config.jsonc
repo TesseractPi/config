@@ -75,7 +75,7 @@
     // === Window Titles ===
 
     "rewrite": {
-    // nothing
+      // nothing
       "": "<span foreground='#89b4fa'> </span> Hyprland",
       // terminal
       "~": "  Terminal",
@@ -88,28 +88,19 @@
       "sudo vim": "<span foreground='#009933'> </span> Vim",
       "vim (.*)": "<span foreground='#009933'> </span> $1",
       "sudo vim (.*)": "<span foreground='#009933'> </span> $1",
-      "calc": "  Calculator",
-      "clac": "  Calculator",
-      "(.*) - PrusaSlicer-2.9.0+UNKNOWN based on Slic3r": " $1",
-      "PrusaSlicer-2.9.0+UNKNOWN based on Slic3r": " PrusaSlicer",
-      "(.*) - Inkscape": "  $1",
-      "FreeCAD 1.0.0": "<span foreground='#cb333b'> </span> FreeCAD",
-      "(.*) - FreeCAD 1.0.0": "<span foreground='#cb333b'> </span> $1",
-      "(.*) - GNU Emacs at TesseractPiTop": "  $1",
-      "(.*) – Doom Emacs": "  $1",
-      "Signal": "<span foreground='#3b45fd'> </span> Signal",
-      "No Man's Sky": "<span foreground='#c1272d'>󰣏 </span> NMS",
+      "calc": "<span foreground='#ff9200'> </span> Calculator",
+      "clac": "<span foreground='#ff9200'> </span>  Calculator",
       "/": "  File Manager",
       "Timeshift-gtk": "<span foreground='#a6e3a1'> </span> Timeshift",
       "Authenticate": "  Authenticate",
       // package managers
-      "update": "󰮯  System Update",
-      "udpate": "󰮯  System Update",
-      "updtae": "󰮯  System Update",
-      "updaet": "󰮯  System Update",
-      "yay -S (.*)": "󰣇 󱧕  $1",
-      "yay -Ss (.*)": "󰣇   $1",
-      "yay -R (.*)": "󰣇 󱧔  $1",
+      "update": "<span foreground='#f2f008'>󰮯 </span> Update",
+      "udpate": "<span foreground='#f2f008'>󰮯 </span> Update",
+      "updtae": "<span foreground='#f2f008'>󰮯 </span> Update",
+      "updaet": "<span foreground='#f2f008'>󰮯 </span> Update",
+      "yay -S (.*)": "<span foreground='#1e96d2'>󰣇 </span> 󱧕  $1",
+      "yay -Ss (.*)": "<span foreground='#1e96d2'>󰣇 </span>   $1",
+      "yay -R (.*)": "<span foreground='#1e96d2'>󰣇 </span> 󱧔  $1",
       "sudo pacman -S (.*)": "󰮯 󱧕  $1",
       "sudo pacman -Ss (.*)": "󰮯   $1",
       "pacman -Ss (.*)": "󰮯   $1",
@@ -150,7 +141,7 @@
       "My Assigned Assignments — Mozilla Firefox": "󰑴  AP Classroom",
       "Get the Most Out of AP – AP Students | College Board — Mozilla Firefox": "󰑴  AP Classroom",
       "(.*) | Desmos — Mozilla Firefox": "<span foreground='#50c050'> </span> $1",
-      // "(.*) Desmos | Graphing Calculator — Mozilla Firefox": "<span foreground='#50c050'> </span> $1",
+      "(.*) Desmos | Graphing Calculator — Mozilla Firefox": "<span foreground='#50c050'> </span> $1",
       "Desmos | Graphing Calculator — Mozilla Firefox": "<span foreground='#50c050'> </span> Desmos",
       "(.*) — Bluesky": "<span foreground='#0a7aff'> </span> $1",
       "Bluesky — Mozilla Firefox": "<span foreground='#0a7aff'> </span> Bluesky",
@@ -159,6 +150,7 @@
       "OpenStreetMap — Mozilla Firefox": "󰦅  OSM",
       "iD | OpenStreetMap — Mozilla Firefox": "󰦅   Edit OSM",
       "(.*) - YouTube — Mozilla Firefox": "<span foreground='#ff0033'></span>  $1",
+      "(.*) — WordPress — Mozilla Firefox": "<span foreground='#0a7aff'> </span> $1",
       // vscode
       "(.*) - Visual Studio Code": "<span foreground='#89b4fa'>󰨞 </span> $1",
       "(.*)Visual Studio Code": "<span foreground='#89b4fa'>󰨞 </span> $1",
@@ -180,8 +172,8 @@
       "(.*) — LibreOffice Calc": "<span foreground='#3cbc45'> </span> $1",
       "(.*) — LibreOffice Draw": "<span foreground='#e5b443'> </span> $1",
       "(.*) — LibreOffice Math": "<span foreground='#e02d57'> </span> $1",
-      "(.*) — LibreOffice Impress": "<span foreground='#e75729'> </span> $1",
       "(.*) — LibreOffice Writer": "<span foreground='#1a85d1'> </span> $1",
+      "(.*) — LibreOffice Impress": "<span foreground='#e75729'> </span> $1",
       "(.*) — LibreOffice": "<span foreground='#707070'>  $1",
       "LibreOffice": "<span foreground='#707070'>  LibreOffice",
       "(.*).docx": "<span foreground='#185abd'> </span> $1.docx",
@@ -194,8 +186,20 @@
       // discord
       "vesktop": "<span foreground='#7086d4'> </span> Discord",
       "(.*) - Discord": "<span foreground='#7086d4'> </span> $1",
-      "• Discord(.*)": "<span foreground='#7086d4'> </span> $1",
-      "(.*)Discord(.*)": "<span foreground='#7086d4'> </span> $1 · $2",
+      "• Discord (.*)": "<span foreground='#7086d4'> </span> $1",
+      "• Discord": "<span foreground='#7086d4'> </span> Discord",
+      "(.*)Discord(.*)": "<span foreground='#7086d4'> </span> $1$2",
+      "Discord Updater": "<span foreground='#7086d4'> </span> Discord Updater",
+      // misc
+      "(.*) - PrusaSlicer-2.9.0+UNKNOWN based on Slic3r": "  $1",
+      "PrusaSlicer-2.9.0+UNKNOWN based on Slic3r": "  PrusaSlicer",
+      "(.*) - Inkscape": "  $1",
+      "FreeCAD 1.0.0": "<span foreground='#cb333b'> </span> FreeCAD",
+      "(.*) - FreeCAD 1.0.0": "<span foreground='#cb333b'> </span> $1",
+      "(.*) - GNU Emacs at TesseractPiTop": "  $1",
+      "(.*) – Doom Emacs": "  $1",
+      "Signal": "<span foreground='#3b45fd'> </span> Signal",
+      "No Man's Sky": "<span foreground='#c1272d'>󰣏 </span> NMS"
     }
   },
 
@@ -221,6 +225,12 @@
     "interval": 1
   },
 
+  "custom/keymap": {
+    "exec": "~/.config/waybar/scripts/keymap.sh",
+    "return-type": "json",
+    "interval": 1
+  },
+
   "clock#time": {
     "format": " {:%H:%M:%OS}",
     "tooltip": true,
@@ -231,7 +241,7 @@
   },
 
   "clock#date": {
-    "format": "󰨳 {:%y-%m-%d}",
+    "format": " {:%Y-%m-%d}",
     "tooltip-format": "<tt>{calendar}</tt>",
 
     "calendar": {
@@ -255,7 +265,7 @@
     },
 
     "min-length": 1,
-    "max-length": 10
+    "max-length": 15
   },
 
   "custom/wifi": {
@@ -373,11 +383,6 @@
     "format": " ",
     "tooltip": false,
     "on-click": "~/.config/waybar/scripts/power-menu.sh"
-  },
-
-  "custom/keymap": {
-    "exec": "~/.config/waybar/scripts/keymap.sh",
-    "interval": 1
   },
 
 
