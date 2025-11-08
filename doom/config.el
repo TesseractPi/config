@@ -104,27 +104,37 @@
         (set-fontset-font "fontset-default" 'han "Noto Sans CJK SC")
         (set-fontset-font "fontset-default" 'bopomofo "Noto Sans CJK SC")
         ;;(set-fontset-font "fontset-default" 'arabic "Cascadia Code")
-        (set-fontset-font "fontset-default" 'arabic (font-spec :family "Cascadia Code" :size 20 :weight 'light))
+        (set-fontset-font "fontset-default" 'arabic (font-spec :family "Cascadia Code" :size 16 :weight 'semi-light))
         (set-fontset-font "fontset-default" 'hebrew "Cousine"))
 
 (add-hook 'after-setting-font-hook #'me/chfont)
 
-(defun me/display-space-as-icon (orig-fun key-seq &optional prefix)
+(defun me/ligatures-key-description (orig-fun key-seq &optional prefix)
   "use cool nerd font ligatures in minibar"
   (let ((desc (funcall orig-fun key-seq prefix)))
     (setq desc (replace-regexp-in-string "\\<SPC\\>" "󱁐" desc))
     (setq desc (replace-regexp-in-string "\\<RET\\>" "󰌑" desc))
     (setq desc (replace-regexp-in-string "\\<TAB\\>" "󰌒" desc))
+    (setq desc (replace-regexp-in-string "\\<ESC\\>" "" desc))
     (setq desc (replace-regexp-in-string "\\<DEL\\>" "󰭜" desc))
     (setq desc (replace-regexp-in-string "<deletechar>" "󰹿" desc))
+    (setq desc (replace-regexp-in-string "<escape>" "" desc))
+    (setq desc (replace-regexp-in-string "<up>" "" desc))
+    (setq desc (replace-regexp-in-string "<down>" "" desc))
+    (setq desc (replace-regexp-in-string "<left>" "" desc))
+    (setq desc (replace-regexp-in-string "<right>" "" desc))
+    (setq desc (replace-regexp-in-string "up" "" desc))
+    (setq desc (replace-regexp-in-string "down" "" desc))
+    (setq desc (replace-regexp-in-string "left" "" desc))
+    (setq desc (replace-regexp-in-string "right" "" desc))
     desc))
 
-(advice-add 'key-description :around #'me/display-space-as-icon)
+(advice-add 'key-description :around #'me/ligatures-key-description)
 
 
 (after! which-key
-  (defun me/which-key--show-keymap-advice (orig-fun &rest args)
-    "use cool nerd font ligatures in which-key."
+  (defun me/ligatures-which-key--show-keymap (orig-fun &rest args)
+    "use cool nerd font ligatures in which-key"
     (let ((inhibit-message t))
       (cl-letf* (((symbol-function 'which-key--format-and-replace)
                   (lambda (key &rest rest)
@@ -132,11 +142,21 @@
                       (setq res (replace-regexp-in-string "\\<SPC\\>" "󱁐" res))
                       (setq res (replace-regexp-in-string "\\<RET\\>" "󰌑" res))
                       (setq res (replace-regexp-in-string "\\<TAB\\>" "󰌒" res))
+                      (setq res (replace-regexp-in-string "\\<ESC\\>" "" res))
                       (setq res (replace-regexp-in-string "\\<DEL\\>" "󰭜" res))
                       (setq res (replace-regexp-in-string "<deletechar>" "󰹿" res))
+                      (setq res (replace-regexp-in-string "<escape>" "" res))
+                      (setq res (replace-regexp-in-string "<up>" "" res))
+                      (setq res (replace-regexp-in-string "<down>" "" res))
+                      (setq res (replace-regexp-in-string "<left>" "" res))
+                      (setq res (replace-regexp-in-string "<right>" "" res))
+                      (setq res (replace-regexp-in-string "up" "" res))
+                      (setq res (replace-regexp-in-string "down" "" res))
+                      (setq res (replace-regexp-in-string "left" "" res))
+                      (setq res (replace-regexp-in-string "right" "" res))
                       res)))))
         (apply orig-fun args))))
-  (advice-add 'which-key--show-keymap :around #'me/which-key--show-keymap-advice)
+  (advice-add 'which-key--show-keymap :around #'me/ligatures-which-key--show-keymap)
 
 
 ;;QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm
@@ -152,4 +172,4 @@
 ;;헐 이것은 히라가나와 가타카나를 사용한 예문입니다
 ;;this is a hangul alignment test
 ;;this is a hieroglyphic alignment test
-;;󱁐 󰌍 󰭜 󰹿 󰌎 󰌑 󰌒 󰌥 󰘲 󰘳 󰘴 󰘵 󰘶 ⌥ ⌘ ⎋
+;;󱁐 󰌍 󰭜 󰹿 󰌎 󰌑 󰌒 󰌥 󰘲 󰘳 󰘴 󰘵 󰘶  󰜹
